@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Run
 
 # Controls when the workflow will run
 on:
@@ -33,17 +33,15 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Download Gradle
         run: |
-          cd ./temp/
           wget https://services.gradle.org/distributions/gradle-${{ inputs.version }}-${{ inputs.distribution_type }}.zip
 
       - name: Test -> ls the ./temp dir
         run: |
-          cd ./temp/
           ls
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:
           name: Gradle Distribution Zip Artifact
-          path: /temp/
+          path: *.zip
         
