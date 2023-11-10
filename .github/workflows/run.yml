@@ -43,5 +43,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Gradle Distribution Zip Artifact
-          path: *.zip
+          path: |
+            *.zip
         
